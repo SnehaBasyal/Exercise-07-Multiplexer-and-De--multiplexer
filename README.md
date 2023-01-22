@@ -47,42 +47,77 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+
+1. Create a project with required entities. 
+2. Create a module along with respective file name. 
+3. Run the respective programs for the given boolean equations. 
+4. Run the module and get the respective RTL outputs. 
+5. Create university program(VWF) for getting timing diagram. 
+6. Give the respective inputs for timing diagram and obtain the results.
 
 
 
 ### PROGRAM 
-/*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: SNEHA BASYAL M
+RegisterNumber: 22008869
+```
+4x1 MULTIPLEXER:
+
+module multiplexer(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+not(s0c,s0);
+nor(s1c,s1);
+wire p,q,r,s,s0c,s1c;
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule
+
+1x4 DE-MULTIPLEXER:
+
+module demultiplexer(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c, s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1);
+and(y1,i,s0c,s1c);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
+```
+
+### RTL LOGIC DIAGRAM:
+
+MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](multiplexer.png)
+
+DE-MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](demultiplexer.png)
 
 
+### TIMING DIGRAM:
+
+MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](multiming.png)
+
+DE-MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](demultiming.png)
 
 
+### TRUTH TABLE:
+
+MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](multable.png)
+
+DE-MULTIPLEXER:
+![EXERCISE-07-MULTIPLEXER-AND-DE-MULTIPLEXER](demultable.png)
 
 
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+### RESULT:
+Thus the 4x1 multiplexer and 1x4 de-multiplexer circuits are designed and truth tables, RTL diagram and timing diagram are verified successfully.
